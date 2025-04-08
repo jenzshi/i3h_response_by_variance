@@ -5,6 +5,10 @@ from response_by_variance.etl import (
     correlation_transform,
     analyze_correlation_thresholds,
     get_correlation_statistics,
+    # Commented out visualization functions
+    # create_heatmap_from_pivot,
+    # create_clustered_heatmap,
+    # generate_all_pivot_visualizations,
 )
 from response_by_variance.optimize import (
     find_best_combos,
@@ -17,6 +21,11 @@ from response_by_variance.optimize import (
     optimize_by_coverage,
     optimize_by_response,
     optimize_panel,
+    create_population_reagent_pivot,
+    create_population_condition_pivot,
+    create_reagent_condition_population_pivot,
+    create_variance_pivot,
+    create_median_variance_filtered_df,
 )
 import polars as pl
 import os
@@ -35,9 +44,23 @@ def save_results(dataframes: dict[str, pl.DataFrame], output_dir: str) -> None:
     
     # Save each DataFrame to CSV
     for filename, df in dataframes.items():
+        # Round all float columns to 3 decimal places
+        float_cols = [col for col in df.columns if df.schema[col] in [pl.Float32, pl.Float64]]
+        
+        if float_cols:
+            # Create expressions for each column, rounding floats
+            expr = [
+                pl.col(col).round(3) if col in float_cols else pl.col(col)
+                for col in df.columns
+            ]
+            # Apply the expressions to round the float columns
+            rounded_df = df.select(expr)
+        else:
+            rounded_df = df
+        
         output_path = os.path.join(output_dir, filename)
         print(f"Saving {filename}...")
-        df.write_csv(output_path)
+        rounded_df.write_csv(output_path)
         print(f"Saved to {output_path} ({df.shape[0]} rows, {df.shape[1]} columns)")
 
 
@@ -154,6 +177,26 @@ def main():
     print("Analyzing correlation thresholds...")
     threshold_stats = analyze_correlation_thresholds(correlation_matrix)
     
+    # Create filtered data for pivot tables
+    print("\n========= Generating Pivot Tables for Analysis =========\n")
+    # Filter data for higher median and variance values
+    filtered_data = create_median_variance_filtered_df(
+        output_frame, 
+        median_threshold=10.0,  # Filter for median > 10
+        variance_threshold=10.0  # Filter for variance > 10
+    )
+    
+    # Create pivot tables
+    population_reagent_pivot = create_population_reagent_pivot(output_frame)
+    population_condition_pivot = create_population_condition_pivot(output_frame)
+    reagent_condition_pivot = create_reagent_condition_population_pivot(output_frame)
+    variance_pivot = create_variance_pivot(output_frame)
+    
+    # Create pivot tables from filtered data
+    filtered_population_reagent_pivot = create_population_reagent_pivot(filtered_data)
+    filtered_population_condition_pivot = create_population_condition_pivot(filtered_data)
+    filtered_reagent_condition_pivot = create_reagent_condition_population_pivot(filtered_data)
+    
     # Save all results
     print("\n========= Saving Results =========\n")
     results = {
@@ -171,9 +214,33 @@ def main():
         "response_optimal_panels.csv": response_panels,
         "complex_optimal_panels.csv": complex_panels,
         "output.csv": output_frame,  # Include original output for compatibility
+        
+        # Add new pivot table results
+        "filtered_data_for_pivot.csv": filtered_data,
+        "pivot_population_by_reagent.csv": population_reagent_pivot,
+        "pivot_population_by_condition.csv": population_condition_pivot,
+        "pivot_population_by_reagent_condition.csv": reagent_condition_pivot,
+        "pivot_variance_by_reagent.csv": variance_pivot,
+        "filtered_pivot_population_by_reagent.csv": filtered_population_reagent_pivot,
+        "filtered_pivot_population_by_condition.csv": filtered_population_condition_pivot,
+        "filtered_pivot_population_by_reagent_condition.csv": filtered_reagent_condition_pivot,
     }
     
     save_results(results, output_filepath)
+    
+    # Comment out visualization code
+    """
+    # Generate visualizations for the pivot tables
+    pivot_visualizations = {
+        "population_by_reagent": population_reagent_pivot,
+        "population_by_condition": population_condition_pivot,
+        "variance_by_reagent": variance_pivot,
+        "filtered_population_by_reagent": filtered_population_reagent_pivot,
+        "filtered_population_by_condition": filtered_population_condition_pivot,
+    }
+    generate_all_pivot_visualizations(pivot_visualizations, output_filepath)
+    """
+    
     print("\n========= Analysis Complete =========\n")
 
 

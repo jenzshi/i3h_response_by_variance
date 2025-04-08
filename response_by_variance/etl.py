@@ -4,6 +4,7 @@ from response_by_variance.optimize import find_best_combos
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
+import pandas as pd
 
 
 def filter_by_group(
@@ -87,6 +88,7 @@ def avg_across_cell_populations(
         on="population",
         index=["reagent", "Condition"],
         values=pivot_value_column,
+        aggregate_function="mean"
     ).with_columns(pl.mean_horizontal(unique_populations).alias(output_value_column))
     return medpivot.drop(unique_populations)
 
@@ -505,3 +507,136 @@ def process_data(
     
     print(f"Processed data shape: {processed.shape}")
     return processed.select(final_columns)
+
+
+# def create_heatmap_from_pivot(pivot_df: pl.DataFrame, title: str, output_path: str) -> None:
+#     """
+#     Create a heatmap visualization from a pivot table.
+    
+#     Args:
+#         pivot_df: Pivot table DataFrame
+#         title: Title for the heatmap
+#         output_path: Path to save the heatmap image
+#     """
+#     # Convert to pandas for visualization
+#     pd_df = pivot_df.to_pandas()
+    
+#     # We need to ensure all data is numeric for the heatmap
+#     # First, save the original index and columns
+#     index_labels = pd_df.index.tolist()
+#     column_labels = pd_df.columns.tolist()
+    
+#     # Convert data to numeric, replacing non-numeric with NaN
+#     numeric_data = pd_df.apply(pd.to_numeric, errors='coerce')
+    
+#     # Create figure with appropriate size
+#     plt.figure(figsize=(max(12, len(column_labels) * 0.4), max(8, len(index_labels) * 0.4)))
+    
+#     # Create heatmap using imshow
+#     im = plt.imshow(numeric_data.values, cmap='viridis', aspect='auto')
+    
+#     # Add colorbar
+#     plt.colorbar(im)
+    
+#     # Set tick labels
+#     plt.yticks(range(len(index_labels)), index_labels)
+#     plt.xticks(range(len(column_labels)), column_labels, rotation=90)
+    
+#     # Add labels and title
+#     plt.title(title)
+#     plt.ylabel("Population")
+#     plt.xlabel("Reagent/Condition")
+    
+#     # Ensure directory exists
+#     os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    
+#     # Save figure
+#     plt.tight_layout()
+#     plt.savefig(output_path, dpi=300)
+#     plt.close()
+    
+#     print(f"Created heatmap visualization: {output_path}")
+
+
+# def create_clustered_heatmap(pivot_df: pl.DataFrame, title: str, output_path: str) -> None:
+#     """
+#     Create a clustered heatmap visualization from a pivot table with hierarchical clustering.
+    
+#     Args:
+#         pivot_df: Pivot table DataFrame
+#         title: Title for the heatmap
+#         output_path: Path to save the heatmap image
+#     """
+#     try:
+#         # Convert to pandas for visualization
+#         pd_df = pivot_df.to_pandas()
+        
+#         # Convert data to numeric, replacing non-numeric with NaN
+#         numeric_data = pd_df.apply(pd.to_numeric, errors='coerce')
+        
+#         # Fill NaN values with the mean for visualization purposes
+#         numeric_data = numeric_data.fillna(numeric_data.mean().mean())
+        
+#         # Create clustered heatmap with hierarchical clustering
+#         g = sns.clustermap(
+#             numeric_data,
+#             cmap="viridis",
+#             figsize=(max(14, len(pd_df.columns) * 0.4), max(10, len(pd_df) * 0.4)),
+#             linewidths=0.5,
+#             dendrogram_ratio=0.1,
+#             cbar_pos=(0.02, 0.8, 0.05, 0.18),
+#         )
+        
+#         # Add title
+#         g.fig.suptitle(title)
+        
+#         # Rotate x-axis labels for better readability
+#         plt.setp(g.ax_heatmap.get_xticklabels(), rotation=90)
+        
+#         # Ensure directory exists
+#         os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        
+#         # Save figure
+#         g.fig.tight_layout(rect=[0, 0, 1, 0.95])  # Make room for the title
+#         plt.savefig(output_path, dpi=300)
+#         plt.close()
+        
+#         print(f"Created clustered heatmap visualization: {output_path}")
+#     except Exception as e:
+#         print(f"Warning: Could not create clustered heatmap for {title}: {str(e)}")
+#         # Fall back to regular heatmap if clustering fails
+#         create_heatmap_from_pivot(pivot_df, f"{title} (Without Clustering)", output_path)
+
+
+# def generate_all_pivot_visualizations(pivot_tables: dict[str, pl.DataFrame], output_dir: str) -> None:
+#     """
+#     Generate visualizations for all pivot tables.
+    
+#     Args:
+#         pivot_tables: Dictionary mapping pivot table names to DataFrames
+#         output_dir: Directory to save visualization files
+#     """
+#     print("\nGenerating visualization plots...")
+    
+#     # Create visualization directory
+#     viz_dir = os.path.join(output_dir, "visualizations")
+#     os.makedirs(viz_dir, exist_ok=True)
+    
+#     # Create visualizations for each pivot table
+#     for name, pivot_df in pivot_tables.items():
+#         # Skip if pivot table is empty or has no data to visualize
+#         if pivot_df is None or len(pivot_df) == 0 or len(pivot_df.columns) <= 1:
+#             print(f"Skipping visualization for {name} - insufficient data")
+#             continue
+            
+#         # Create standard heatmap
+#         title = f"{name.replace('_', ' ').title()} Heatmap"
+#         output_path = os.path.join(viz_dir, f"{name}_heatmap.png")
+#         create_heatmap_from_pivot(pivot_df, title, output_path)
+        
+#         # Create clustered heatmap
+#         title = f"{name.replace('_', ' ').title()} Clustered Heatmap"
+#         output_path = os.path.join(viz_dir, f"{name}_clustered_heatmap.png")
+#         create_clustered_heatmap(pivot_df, title, output_path)
+    
+#     print("Visualization generation complete")

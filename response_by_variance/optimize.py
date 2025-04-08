@@ -635,3 +635,167 @@ def optimize_panel(
     
     print(f"Generated {len(panels)} complex optimized panels")
     return pl.DataFrame(panels)
+
+
+#####################################################################################################################
+### we can experiemtn with some pivot table outputs as well since that format seems most useful #####################
+#####################################################################################################################
+
+def create_population_reagent_pivot(df: pl.DataFrame) -> pl.DataFrame:
+    """
+    Create a pivot table with cell populations as rows and reagents as columns.
+    
+    Args:
+        df: DataFrame with population, reagent, Condition, median, variance
+        
+    Returns:
+        DataFrame in pivot format
+    """
+    print("Creating population by reagent pivot table...")
+    
+    # We need to create a pivot table with:
+    # - Rows: population
+    # - Columns: reagent
+    # - Values: median
+    
+    # First ensure we have no null values in the median column
+    df = df.filter(~pl.col("median").is_null())
+    
+    # Get unique populations and reagents for the index
+    populations = df.select("population").unique().sort("population")
+    reagents = df.select("reagent").unique().sort("reagent")
+    
+    # Create the pivot table
+    pivot_df = df.pivot(
+        index="population",
+        columns="reagent",
+        values="median",
+        aggregate_function="mean"
+    )
+    
+    print(f"Created pivot table with {len(populations)} populations and {len(reagents)} reagents")
+    return pivot_df
+
+
+def create_population_condition_pivot(df: pl.DataFrame) -> pl.DataFrame:
+    """
+    Create a pivot table with cell populations as rows and conditions as columns.
+    
+    Args:
+        df: DataFrame with population, reagent, Condition, median, variance
+        
+    Returns:
+        DataFrame in pivot format
+    """
+    print("Creating population by condition pivot table...")
+    
+    # We need to create a pivot table with:
+    # - Rows: population
+    # - Columns: Condition
+    # - Values: median
+    
+    # First ensure we have no null values in the median column
+    df = df.filter(~pl.col("median").is_null())
+    
+    # Get unique populations and conditions for the index
+    populations = df.select("population").unique().sort("population")
+    conditions = df.select("Condition").unique().sort("Condition")
+    
+    # Create the pivot table
+    pivot_df = df.pivot(
+        index="population",
+        columns="Condition",
+        values="median",
+        aggregate_function="mean"
+    )
+    
+    print(f"Created pivot table with {len(populations)} populations and {len(conditions)} conditions")
+    return pivot_df
+
+
+def create_reagent_condition_population_pivot(df: pl.DataFrame) -> pl.DataFrame:
+    """
+    Create a more complex pivot table with reagents and conditions combined as columns,
+    and populations as rows, similar to the format researchers are using.
+    
+    Args:
+        df: DataFrame with population, reagent, Condition, median, variance
+        
+    Returns:
+        DataFrame in a hierarchical pivot format
+    """
+    print("Creating complex pivot table (population by reagent+condition)...")
+    
+    # First ensure we have no null values in the median column
+    df = df.filter(~pl.col("median").is_null())
+    
+    # Get unique values for our dimensions
+    populations = df.select("population").unique().sort("population")
+    
+    # Create a combined column for reagent and condition
+    df = df.with_columns(
+        pl.concat_str(["reagent", "Condition"], separator="_").alias("reagent_condition")
+    )
+    
+    # Create the pivot table
+    pivot_df = df.pivot(
+        index="population",
+        columns="reagent_condition",
+        values="median",
+        aggregate_function="mean"
+    )
+    
+    print(f"Created complex pivot table with {len(populations)} populations")
+    return pivot_df
+
+
+def create_variance_pivot(df: pl.DataFrame) -> pl.DataFrame:
+    """
+    Create a pivot table with cell populations as rows and reagents as columns,
+    with variance values instead of medians.
+    
+    Args:
+        df: DataFrame with population, reagent, Condition, median, variance
+        
+    Returns:
+        DataFrame in pivot format with variance values
+    """
+    print("Creating variance pivot table...")
+    
+    # First ensure we have no null values in the variance column
+    df = df.filter(~pl.col("variance").is_null())
+    
+    # Create the pivot table
+    pivot_df = df.pivot(
+        index="population",
+        columns="reagent",
+        values="variance",
+        aggregate_function="mean"
+    )
+    
+    print(f"Created variance pivot table")
+    return pivot_df
+
+
+def create_median_variance_filtered_df(df: pl.DataFrame, median_threshold: float = 10.0, variance_threshold: float = 20.0) -> pl.DataFrame:
+    """
+    Create a filtered dataframe containing only rows with median and variance values
+    above specified thresholds, which can be used for pivot tables.
+    
+    Args:
+        df: DataFrame with population, reagent, Condition, median, variance
+        median_threshold: Minimum median value to include
+        variance_threshold: Minimum variance value to include
+        
+    Returns:
+        Filtered DataFrame
+    """
+    print(f"Filtering data for median > {median_threshold} and variance > {variance_threshold}...")
+    
+    filtered_df = df.filter(
+        (pl.col("median") > median_threshold) & 
+        (pl.col("variance") > variance_threshold)
+    )
+    
+    print(f"Filtered data from {len(df)} to {len(filtered_df)} rows")
+    return filtered_df
