@@ -438,3 +438,70 @@ def response_and_variance_transform(
     print("Final columns:", aggregated.columns)
 
     return aggregated
+
+##############################################################################################################################
+### adding experimental featues that incorporates indexing idea and more complex optimizations###############################
+##############################################################################################################################
+
+
+
+
+
+
+def process_data(
+    input_frame: pl.DataFrame,
+    initial_filters: dict[str, str],
+    basal_filters: dict[str, str],
+    normalization_join: list[str],
+    std_dev_count: int,
+    value_column: str = "value",
+) -> pl.DataFrame:
+    """
+    Process raw data for output into processed_data.csv.
+    
+    This function performs data cleaning, normalization, and outlier removal,
+    but preserves individual data points (doesn't aggregate).
+    
+    Args:
+        input_frame: Input data frame
+        initial_filters: Initial data filters
+        basal_filters: Filters for basal/baseline conditions
+        normalization_join: Columns to join on for normalization
+        std_dev_count: Number of standard deviations for outlier removal
+        value_column: Name of the value column
+        
+    Returns:
+        Processed DataFrame ready for output
+    """
+    print("Processing data for output...")
+    
+    # Filter and normalize data
+    processed = preprocess(
+        input_frame,
+        initial_filters,
+        basal_filters,
+        normalization_join,
+        keep_columns=[], # No columns to drop at this stage
+        aggregation_columns=["population", "reagent", "Condition"],
+        std_dev_count=std_dev_count,
+        value_column=value_column,
+    )
+    
+    # Add metadata for tracking processing steps
+    processed = processed.with_columns([
+        pl.lit("Applied initial filters: " + ", ".join([f"{k}={v}" for k, v in initial_filters.items()])).alias("processing_info"),
+        pl.lit(f"Normalized against {list(basal_filters.values())[0]} condition").alias("normalization"),
+        pl.lit(f"Removed outliers beyond {std_dev_count} standard deviations").alias("outlier_handling")
+    ])
+    
+    # Select columns for output
+    # Keep original values alongside normalized values for reference
+    final_columns = [col for col in processed.columns if col not in [
+        "basal_value", "std", "processing_info", "normalization", "outlier_handling"
+    ]]
+    
+    # Move metadata columns to the end
+    final_columns.extend(["processing_info", "normalization", "outlier_handling"])
+    
+    print(f"Processed data shape: {processed.shape}")
+    return processed.select(final_columns)

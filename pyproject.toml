@@ -11,12 +11,15 @@ dependencies = [
     "polars (>=1.21.0,<2.0.0)",
     "pytest (>=8.3.4,<9.0.0)",
     "pulp (>=2.9.0,<3.0.0)",
-    "numpy (>=2.2.3,<3.0.0)",
-    "pandas (>=2.2.3,<3.0.0)"
+    "numpy (>=1.24.0,<2.0.0)",
+    "pandas (>=2.2.3,<3.0.0)",
+    "matplotlib (>=3.7.0,<4.0.0)",
+    "seaborn (>=0.12.0,<1.0.0)",
+    "pyarrow (>=14.0.0,<15.0.0)"
 ]
 
 packages = [
-    { include = "response_by_variance_etl" },
+    { include = "response_by_variance" },
 ]
 
 [build-system]
