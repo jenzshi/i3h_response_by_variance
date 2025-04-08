@@ -5,4 +5,5 @@ data_testing/output/correlation_*.csv
 data_testing/output/correlation_*.png
 data_testing/input/*.csv
 data_testing/output/*.csv
-poetry.lock
+poetry.lockdata_testing/output/*.csv
+data_testing/output/*.png
