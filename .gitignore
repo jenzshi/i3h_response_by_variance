@@ -21,11 +21,15 @@ ENV/
 *.swo
 
 # Project specific
-data_testing/output/correlation_*.csv
-data_testing/output/correlation_*.png
-data_testing/input/*.csv
-data_testing/output/*.csv
-data_testing/output/*.png
+data/output/correlation_*.csv
+data/output/correlation_*.png
+data/output/*.csv
+data/output/*.png
+data/output/correlations/*.csv
+data/output/correlations/*.png
 
 # Dependencies
 poetry.lock
+
+# Local development
+dev.env
