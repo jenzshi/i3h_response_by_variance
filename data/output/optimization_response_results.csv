@@ -1,0 +1,11 @@
+population,reagent,Condition,median,variance,uniquePopulationName,parentPopulation,channel,Species,statistic,uniquePopulationName_right,parentPopulation_right,channel_right,Species_right,statistic_right,std,optimization_type
+CD16+/CD11b+,pTBK1,R848,304.695,23469.438,CD16+/CD11b+,HLA-DR+/CD7-,Dy161Di,Human,median,CD16+/CD11b+,HLA-DR+/CD7-,Dy161Di,Human,median,208.756,response
+CD16+/CD11b-,pTBK1,R848,266.26,12918.907,CD16+/CD11b-,HLA-DR+/CD7-,Dy161Di,Human,median,CD16+/CD11b-,HLA-DR+/CD7-,Dy161Di,Human,median,165.063,response
+CD16+/CD11b+,pTBK1,LPS,212.885,30637.762,CD16+/CD11b+,HLA-DR+/CD7-,Dy161Di,Human,median,CD16+/CD11b+,HLA-DR+/CD7-,Dy161Di,Human,median,211.391,response
+CD16+/CD11b-,pTBK1,LPS,149.085,16317.819,CD16+/CD11b-,HLA-DR+/CD7-,Dy161Di,Human,median,CD16+/CD11b-,HLA-DR+/CD7-,Dy161Di,Human,median,160.507,response
+CD11b+/CD16-,pTBK1,R848,145.169,5077.86,CD11b+/CD16-,HLA-DR+/CD7-,Dy161Di,Human,median,CD11b+/CD16-,HLA-DR+/CD7-,Dy161Di,Human,median,102.352,response
+CD11b+/CD16-,pTBK1,LPS,97.821,9140.982,CD11b+/CD16-,HLA-DR+/CD7-,Dy161Di,Human,median,CD11b+/CD16-,HLA-DR+/CD7-,Dy161Di,Human,median,114.789,response
+CD11b+/CD16-,pSTAT6,IL-4,80.686,550.865,CD11b+/CD16-,HLA-DR+/CD7-,Ho165Di,Human,median,CD11b+/CD16-,HLA-DR+/CD7-,Ho165Di,Human,median,41.197,response
+CD16+/CD11b+,pSTAT6,IL-4,75.754,485.936,CD16+/CD11b+,HLA-DR+/CD7-,Ho165Di,Human,median,CD16+/CD11b+,HLA-DR+/CD7-,Ho165Di,Human,median,40.492,response
+CD16+/CD11b+,pSTAT5,GM-CSF,75.643,245.445,CD16+/CD11b+,HLA-DR+/CD7-,Sm149Di,Human,median,CD16+/CD11b+,HLA-DR+/CD7-,Sm149Di,Human,median,38.914,response
+CD11b-/CD16-,pSTAT6,IL-4,73.276,735.754,CD11b-/CD16-,HLA-DR+/CD7-,Ho165Di,Human,median,CD11b-/CD16-,HLA-DR+/CD7-,Ho165Di,Human,median,42.265,response

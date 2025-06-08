@@ -1,0 +1,67 @@
+population,reagent,Condition,median,variance,uniquePopulationName,parentPopulation,channel,Species,statistic,uniquePopulationName_right,parentPopulation_right,channel_right,Species_right,statistic_right,std,optimization_type
+CD11b-/CD16-,pSTAT5,GM-CSF,55.943,289.094,CD11b-/CD16-,HLA-DR+/CD7-,Sm149Di,Human,median,CD11b-/CD16-,HLA-DR+/CD7-,Sm149Di,Human,median,31.195,correlation
+CD11b-/CD16-,pErk1/2,PMAIono,20.15,291.989,CD11b-/CD16-,HLA-DR+/CD7-,Sm152Di,Human,median,CD11b-/CD16-,HLA-DR+/CD7-,Sm152Di,Human,median,49.129,correlation
+CD11b-/CD16-,pSTAT1,IFNa2,22.224,163.025,CD11b-/CD16-,HLA-DR+/CD7-,Sm147Di,Human,median,CD11b-/CD16-,HLA-DR+/CD7-,Sm147Di,Human,median,26.596,correlation
+CD11b-/CD16-,pSTAT1,IFNb,26.944,171.488,CD11b-/CD16-,HLA-DR+/CD7-,Sm147Di,Human,median,CD11b-/CD16-,HLA-DR+/CD7-,Sm147Di,Human,median,28.501,correlation
+CD11b-/CD16-,pSTAT5,IFNb,27.736,128.883,CD11b-/CD16-,HLA-DR+/CD7-,Sm149Di,Human,median,CD11b-/CD16-,HLA-DR+/CD7-,Sm149Di,Human,median,22.986,correlation
+CD11b-/CD16-,pSTAT6,IL-4,73.276,735.754,CD11b-/CD16-,HLA-DR+/CD7-,Ho165Di,Human,median,CD11b-/CD16-,HLA-DR+/CD7-,Ho165Di,Human,median,42.265,correlation
+CD11b-/CD16-,pErk1/2,GM-CSF,40.92,409.984,CD11b-/CD16-,HLA-DR+/CD7-,Sm152Di,Human,median,CD11b-/CD16-,HLA-DR+/CD7-,Sm152Di,Human,median,44.901,correlation
+CD8+T cells,pSTAT6,IL-4,25.686,61.079,CD8+T cells,T Cells,Ho165Di,Human,median,CD8+T cells,T Cells,Ho165Di,Human,median,13.772,correlation
+CD8+T cells,pSTAT5,IL-2,44.857,76.0,CD8+T cells,T Cells,Sm149Di,Human,median,CD8+T cells,T Cells,Sm149Di,Human,median,20.982,correlation
+CD11b+/CD16-,pP38,R848,27.061,139.17,CD11b+/CD16-,HLA-DR+/CD7-,Sm154Di,Human,median,CD11b+/CD16-,HLA-DR+/CD7-,Sm154Di,Human,median,24.495,correlation
+CD11b+/CD16-,pSTAT6,IL-4,80.686,550.865,CD11b+/CD16-,HLA-DR+/CD7-,Ho165Di,Human,median,CD11b+/CD16-,HLA-DR+/CD7-,Ho165Di,Human,median,41.197,correlation
+CD11b+/CD16-,pErk1/2,GM-CSF,47.022,214.256,CD11b+/CD16-,HLA-DR+/CD7-,Sm152Di,Human,median,CD11b+/CD16-,HLA-DR+/CD7-,Sm152Di,Human,median,48.142,correlation
+CD11b+/CD16-,pErk1/2,Anthrax,26.774,364.642,CD11b+/CD16-,HLA-DR+/CD7-,Sm152Di,Human,median,CD11b+/CD16-,HLA-DR+/CD7-,Sm152Di,Human,median,50.358,correlation
+CD11b+/CD16-,pSTAT5,GM-CSF,68.569,250.687,CD11b+/CD16-,HLA-DR+/CD7-,Sm149Di,Human,median,CD11b+/CD16-,HLA-DR+/CD7-,Sm149Di,Human,median,31.898,correlation
+CD11b+/CD16-,pSTAT1,IFNb,33.224,204.345,CD11b+/CD16-,HLA-DR+/CD7-,Sm147Di,Human,median,CD11b+/CD16-,HLA-DR+/CD7-,Sm147Di,Human,median,43.381,correlation
+CD11b+/CD16-,pTBK1,TNFa,25.133,331.844,CD11b+/CD16-,HLA-DR+/CD7-,Dy161Di,Human,median,CD11b+/CD16-,HLA-DR+/CD7-,Dy161Di,Human,median,26.609,correlation
+CD11b+/CD16-,pTBK1,R848,145.169,5077.86,CD11b+/CD16-,HLA-DR+/CD7-,Dy161Di,Human,median,CD11b+/CD16-,HLA-DR+/CD7-,Dy161Di,Human,median,102.352,correlation
+CD11b+/CD16-,pSTAT1,IFNg,24.027,174.552,CD11b+/CD16-,HLA-DR+/CD7-,Sm147Di,Human,median,CD11b+/CD16-,HLA-DR+/CD7-,Sm147Di,Human,median,38.876,correlation
+CD11b+/CD16-,pTBK1,LPS,97.821,9140.982,CD11b+/CD16-,HLA-DR+/CD7-,Dy161Di,Human,median,CD11b+/CD16-,HLA-DR+/CD7-,Dy161Di,Human,median,114.789,correlation
+Basophils,pSTAT5,GM-CSF,61.117,191.006,Basophils,Singlets,Sm149Di,Human,median,Basophils,Singlets,Sm149Di,Human,median,30.594,correlation
+Basophils,pErk1/2,GM-CSF,29.051,73.895,Basophils,Singlets,Sm152Di,Human,median,Basophils,Singlets,Sm152Di,Human,median,26.047,correlation
+CD16+/CD11b-,pSTAT1,IFNb,30.211,147.035,CD16+/CD11b-,HLA-DR+/CD7-,Sm147Di,Human,median,CD16+/CD11b-,HLA-DR+/CD7-,Sm147Di,Human,median,41.395,correlation
+CD16+/CD11b-,pTBK1,R848,266.26,12918.907,CD16+/CD11b-,HLA-DR+/CD7-,Dy161Di,Human,median,CD16+/CD11b-,HLA-DR+/CD7-,Dy161Di,Human,median,165.063,correlation
+CD16+/CD11b-,pTBK1,TNFa,23.154,247.656,CD16+/CD11b-,HLA-DR+/CD7-,Dy161Di,Human,median,CD16+/CD11b-,HLA-DR+/CD7-,Dy161Di,Human,median,23.096,correlation
+CD16+/CD11b-,pErk1/2,R848,29.845,183.114,CD16+/CD11b-,HLA-DR+/CD7-,Sm152Di,Human,median,CD16+/CD11b-,HLA-DR+/CD7-,Sm152Di,Human,median,40.556,correlation
+CD16+/CD11b-,pSTAT1,IFNg,26.308,198.827,CD16+/CD11b-,HLA-DR+/CD7-,Sm147Di,Human,median,CD16+/CD11b-,HLA-DR+/CD7-,Sm147Di,Human,median,39.617,correlation
+CD16+/CD11b-,pErk1/2,PMAIono,28.856,248.674,CD16+/CD11b-,HLA-DR+/CD7-,Sm152Di,Human,median,CD16+/CD11b-,HLA-DR+/CD7-,Sm152Di,Human,median,42.667,correlation
+CD16+/CD11b-,pSTAT6,IL-4,53.807,323.827,CD16+/CD11b-,HLA-DR+/CD7-,Ho165Di,Human,median,CD16+/CD11b-,HLA-DR+/CD7-,Ho165Di,Human,median,31.302,correlation
+CD16+/CD11b-,pP38,R848,21.668,133.659,CD16+/CD11b-,HLA-DR+/CD7-,Sm154Di,Human,median,CD16+/CD11b-,HLA-DR+/CD7-,Sm154Di,Human,median,24.153,correlation
+CD16+/CD11b-,pSTAT1,IFNa2,25.329,143.805,CD16+/CD11b-,HLA-DR+/CD7-,Sm147Di,Human,median,CD16+/CD11b-,HLA-DR+/CD7-,Sm147Di,Human,median,39.892,correlation
+CD16+/CD11b-,pSTAT5,GM-CSF,65.94,200.341,CD16+/CD11b-,HLA-DR+/CD7-,Sm149Di,Human,median,CD16+/CD11b-,HLA-DR+/CD7-,Sm149Di,Human,median,31.611,correlation
+CD4+T cells,pSTAT5,IFNb,26.572,51.488,CD4+T cells,T Cells,Sm149Di,Human,median,CD4+T cells,T Cells,Sm149Di,Human,median,16.397,correlation
+CD4+T cells,pSTAT5,IL-2,35.83,107.247,CD4+T cells,T Cells,Sm149Di,Human,median,CD4+T cells,T Cells,Sm149Di,Human,median,22.641,correlation
+CD4+T cells,pSTAT6,IL-4,36.424,82.647,CD4+T cells,T Cells,Ho165Di,Human,median,CD4+T cells,T Cells,Ho165Di,Human,median,16.678,correlation
+CD4+T cells,pSTAT1,IFNb,22.544,106.904,CD4+T cells,T Cells,Sm147Di,Human,median,CD4+T cells,T Cells,Sm147Di,Human,median,22.131,correlation
+CD16+/CD11b+,pSTAT1,IFNg,35.158,369.351,CD16+/CD11b+,HLA-DR+/CD7-,Sm147Di,Human,median,CD16+/CD11b+,HLA-DR+/CD7-,Sm147Di,Human,median,50.636,correlation
+CD16+/CD11b+,pErk1/2,PMAIono,22.999,264.591,CD16+/CD11b+,HLA-DR+/CD7-,Sm152Di,Human,median,CD16+/CD11b+,HLA-DR+/CD7-,Sm152Di,Human,median,55.988,correlation
+CD16+/CD11b+,pErk1/2,LPS,27.609,276.151,CD16+/CD11b+,HLA-DR+/CD7-,Sm152Di,Human,median,CD16+/CD11b+,HLA-DR+/CD7-,Sm152Di,Human,median,55.944,correlation
+CD16+/CD11b+,pTBK1,LPS,212.885,30637.762,CD16+/CD11b+,HLA-DR+/CD7-,Dy161Di,Human,median,CD16+/CD11b+,HLA-DR+/CD7-,Dy161Di,Human,median,211.391,correlation
+CD16+/CD11b+,pTBK1,R848,304.695,23469.438,CD16+/CD11b+,HLA-DR+/CD7-,Dy161Di,Human,median,CD16+/CD11b+,HLA-DR+/CD7-,Dy161Di,Human,median,208.756,correlation
+CD16+/CD11b+,pSTAT5,IFNb,21.382,93.416,CD16+/CD11b+,HLA-DR+/CD7-,Sm149Di,Human,median,CD16+/CD11b+,HLA-DR+/CD7-,Sm149Di,Human,median,24.515,correlation
+CD16+/CD11b+,pSTAT5,GM-CSF,75.643,245.445,CD16+/CD11b+,HLA-DR+/CD7-,Sm149Di,Human,median,CD16+/CD11b+,HLA-DR+/CD7-,Sm149Di,Human,median,38.914,correlation
+CD16+/CD11b+,pSTAT1,IFNa2,33.399,237.225,CD16+/CD11b+,HLA-DR+/CD7-,Sm147Di,Human,median,CD16+/CD11b+,HLA-DR+/CD7-,Sm147Di,Human,median,48.551,correlation
+CD16+/CD11b+,pErk1/2,R848,31.54,230.834,CD16+/CD11b+,HLA-DR+/CD7-,Sm152Di,Human,median,CD16+/CD11b+,HLA-DR+/CD7-,Sm152Di,Human,median,53.766,correlation
+CD16+/CD11b+,pSTAT1,IFNb,41.463,308.961,CD16+/CD11b+,HLA-DR+/CD7-,Sm147Di,Human,median,CD16+/CD11b+,HLA-DR+/CD7-,Sm147Di,Human,median,51.451,correlation
+B Cells,pErk1/2,PMAIono,20.897,196.913,B Cells,CD45+ CD66-,Sm152Di,Human,median,B Cells,CD45+ CD66-,Sm152Di,Human,median,28.733,correlation
+B Cells,pSTAT6,IL-4,46.761,124.819,B Cells,CD45+ CD66-,Ho165Di,Human,median,B Cells,CD45+ CD66-,Ho165Di,Human,median,22.096,correlation
+CD4+/CD8+,pSTAT3,IL-12,22.357,3538.089,CD4+/CD8+,T Cells,La139Di,Human,median,CD4+/CD8+,T Cells,La139Di,Human,median,109.049,correlation
+CD4+/CD8+,pSTAT6,IL-4,31.776,77.699,CD4+/CD8+,T Cells,Ho165Di,Human,median,CD4+/CD8+,T Cells,Ho165Di,Human,median,16.705,correlation
+CD4+/CD8+,pSTAT5,IFNb,24.783,79.964,CD4+/CD8+,T Cells,Sm149Di,Human,median,CD4+/CD8+,T Cells,Sm149Di,Human,median,20.907,correlation
+CD4+/CD8+,pSTAT5,IL-2,44.772,94.342,CD4+/CD8+,T Cells,Sm149Di,Human,median,CD4+/CD8+,T Cells,Sm149Di,Human,median,25.103,correlation
+CD4+/CD8+,pSTAT3,IL-2,20.658,2499.666,CD4+/CD8+,T Cells,La139Di,Human,median,CD4+/CD8+,T Cells,La139Di,Human,median,101.852,correlation
+CD4+/CD8+,pSTAT1,IFNb,22.066,139.417,CD4+/CD8+,T Cells,Sm147Di,Human,median,CD4+/CD8+,T Cells,Sm147Di,Human,median,26.932,correlation
+pDCs,pSTAT6,IL-4,60.572,319.669,pDCs,HLA-DR+ CD11c-,Ho165Di,Human,median,pDCs,HLA-DR+ CD11c-,Ho165Di,Human,median,31.188,correlation
+pDCs,pSTAT1,IFNb,21.549,160.706,pDCs,HLA-DR+ CD11c-,Sm147Di,Human,median,pDCs,HLA-DR+ CD11c-,Sm147Di,Human,median,26.207,correlation
+pDCs,pSTAT5,GM-CSF,49.063,221.368,pDCs,HLA-DR+ CD11c-,Sm149Di,Human,median,pDCs,HLA-DR+ CD11c-,Sm149Di,Human,median,30.469,correlation
+pDCs,pP38,R848,20.31,220.75,pDCs,HLA-DR+ CD11c-,Sm154Di,Human,median,pDCs,HLA-DR+ CD11c-,Sm154Di,Human,median,30.969,correlation
+pDCs,pCREB,PMAIono,20.794,352.759,pDCs,HLA-DR+ CD11c-,Nd145Di,Human,median,pDCs,HLA-DR+ CD11c-,Nd145Di,Human,median,36.605,correlation
+pDCs,pSTAT5,IFNb,20.671,75.208,pDCs,HLA-DR+ CD11c-,Sm149Di,Human,median,pDCs,HLA-DR+ CD11c-,Sm149Di,Human,median,20.07,correlation
+pDCs,pSTAT1,IFNa2,20.377,133.642,pDCs,HLA-DR+ CD11c-,Sm147Di,Human,median,pDCs,HLA-DR+ CD11c-,Sm147Di,Human,median,24.533,correlation
+pDCs,pErk1/2,GM-CSF,24.015,227.375,pDCs,HLA-DR+ CD11c-,Sm152Di,Human,median,pDCs,HLA-DR+ CD11c-,Sm152Di,Human,median,37.366,correlation
+Neutrophils,pErk1/2,GM-CSF,26.829,277.92,Neutrophils,Non-Basophils,Sm152Di,Human,median,Neutrophils,Non-Basophils,Sm152Di,Human,median,46.914,correlation
+Neutrophils,pSTAT5,GM-CSF,48.801,149.608,Neutrophils,Non-Basophils,Sm149Di,Human,median,Neutrophils,Non-Basophils,Sm149Di,Human,median,22.998,correlation
+CD7+/HLA-DR-,pSTAT6,IL-4,22.136,42.445,CD7+/HLA-DR-,CD19- CD3-,Ho165Di,Human,median,CD7+/HLA-DR-,CD19- CD3-,Ho165Di,Human,median,12.141,correlation
+CD7+/HLA-DR-,pSTAT5,IL-2,30.304,53.107,CD7+/HLA-DR-,CD19- CD3-,Sm149Di,Human,median,CD7+/HLA-DR-,CD19- CD3-,Sm149Di,Human,median,15.851,correlation
+CD1c+ B cells,pSTAT6,IL-4,56.024,746.482,CD1c+ B cells,B Cells,Ho165Di,Human,median,CD1c+ B cells,B Cells,Ho165Di,Human,median,40.849,correlation

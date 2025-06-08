@@ -1,9 +1,31 @@
-venv/
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.env
+.venv
+ENV/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Project specific
 data_testing/output/correlation_*.csv
 data_testing/output/correlation_*.png
 data_testing/input/*.csv
 data_testing/output/*.csv
-poetry.lockdata_testing/output/*.csv
 data_testing/output/*.png
+
+# Dependencies
+poetry.lock
